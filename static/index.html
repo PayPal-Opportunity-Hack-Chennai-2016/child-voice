@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)http://themedesigner.in/demo/Helping-Hands/donation-checkout.html -->
+<html lang="en" ng-app="childVoiceApp"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags always come first -->
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Helping Hand - Fund rise for great events</title>
+    
+    <!--Fonts-->
+    <link href="./donate_files/css" rel="stylesheet" type="text/css">
+    <link href="./donate_files/css(1)" rel="stylesheet" type="text/css">
+    <link href="./donate_files/css(2)" rel="stylesheet" type="text/css">
+    
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="./donate_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./donate_files/bootstrap-theme.min.css">
+    <!--Bootstrap Select-->
+    <link rel="stylesheet" href="./donate_files/bootstrap-select.min.css">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="./donate_files/font-awesome.min.css">
+    <!--Owl Carousel-->
+    <link rel="stylesheet" href="./donate_files/owl.carousel.css">
+    <!--Magnific Popup-->
+    <link rel="stylesheet" href="./donate_files/magnific-popup.css">
+    
+    <!--Theme Styles-->
+    <link rel="stylesheet" href="./donate_files/style.min.css">
+    <link rel="stylesheet" href="./donate_files/theme.min.css">
+    <link rel="alternate stylesheet" title="yellow-theme" href="http://themedesigner.in/demo/Helping-Hands/css/yellow-theme.min.css">
+    <link rel="alternate stylesheet" title="blue-theme" href="http://themedesigner.in/demo/Helping-Hands/css/blue-theme.min.css">
+    <link rel="alternate stylesheet" title="red-theme" href="http://themedesigner.in/demo/Helping-Hands/css/red-theme.min.css">
+    <link rel="alternate stylesheet" title="purple-theme" href="http://themedesigner.in/demo/Helping-Hands/css/purple-theme.min.css">
+    <link rel="alternate stylesheet" title="orange-theme" href="http://themedesigner.in/demo/Helping-Hands/css/orange-theme.min.css">
+    
+    
+    <!---Custom inclusion styles-->
+    <link rel="stylesheet" href="lib/angular-material.min.css">
+    
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="vendors/rs-plugin/css/settings-ie8.css">
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+<script type="text/javascript" charset="UTF-8" src="./donate_files/common.js.download"></script><script type="text/javascript" charset="UTF-8" src="./donate_files/util.js.download"></script><script type="text/javascript" charset="UTF-8" src="./donate_files/stats.js.download"></script><script type="text/javascript" charset="UTF-8" src="./donate_files/AuthenticationService.Authenticate"></script></head>
+<body ng-controller="donateController">
+   
+   <form class="col-md-8 checkout-form">
+                    <div class="table-responsive checkout-table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="description">donation cause</th>
+                                    <th class="amount">amount</th>
+                                    <th class="amount">action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="alert" role="alert" ng-repeat="cause in donatedCauses">
+                                    <td>
+                                        <div class="media">
+                                            <div class="media-left"><a href="http://themedesigner.in/demo/Helping-Hands/single-cause.html"><img src="./images/{{cause.image}}" alt=""></a></div>
+                                            <div class="media-body media-middle">{{cause.heading}}</div>
+                                        </div>
+                                    </td>
+                                    <td>${{cause.amount}}</td>
+                                    <td>
+                                        <button type="button" ng-click="deleteDonationClicked($index)">
+                                            <i class="fa fa-times-circle"></i>
+                                        </button>
+                                    </td>
+                                </tr>                              
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" class="text-right">
+                                        total <span>- $50</span> <button type="button" class="btn-primary">save cart</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    
+                    <ul class="gateways nav">
+                        <li><a href="http://themedesigner.in/demo/Helping-Hands/donation-checkout.html#"><img src="./donate_files/mastercard.png" alt=""></a></li>
+                        <li><a href="http://themedesigner.in/demo/Helping-Hands/donation-checkout.html#"><img src="./donate_files/visa.png" alt=""></a></li>
+                        <li><a href="http://themedesigner.in/demo/Helping-Hands/donation-checkout.html#"><img src="./donate_files/amex.png" alt=""></a></li>
+                        <li><a href="http://themedesigner.in/demo/Helping-Hands/donation-checkout.html#"><img src="./donate_files/discover.png" alt=""></a></li>
+                        <li><a href="http://themedesigner.in/demo/Helping-Hands/donation-checkout.html#"><img src="./donate_files/paypal.png" alt=""></a></li>
+                    </ul>
+                    
+                    <h4 class="pi">personal information</h4>
+                    
+                    <label for="email">Email Address<span>*</span></label>
+                    <h6 class="sub-label">We will send the purchase receipt to this address.</h6>
+                    <input ng-model="emailAddress" type="email" id="email" class="form-control" placeholder="YOUR EMAIL ADDRESS">
+                    
+                    <label for="fname">First Name<span>*</span></label>
+                    <h6 class="sub-label">We will use this to personalize your account experience.</h6>
+                    <input ng-model="firstName" type="text" id="fname" class="form-control" placeholder="YOUR first name">
+                    
+                    <label for="lname">last Name</label>
+                    <h6 class="sub-label">We will use this as well to personalize your account experience.</h6>
+                    <input ng-model="lastName" type="text" id="lname" class="form-control" placeholder="YOUR first name">
+                    
+                    <input ng-model="hide" type="checkbox" id="hide-name">
+                    <label for="hide-name">Hide name on backers list?</label>
+                    
+                    <h4 class="total-pay-amount">TOTAL <span>- ${{total}}</span></h4>
+                    
+                    <!--<input type="submit" value="donate now" class="btn-primary">-->
+                    <div class="pm-button">
+                     <a href="https://www.payumoney.com/paybypayumoney/#/83507EDD18684761A4E84BB5E7B8D0DC">
+                       <img src="https://www.payumoney.com/media/images/payby_payumoney/new_buttons/22.png" />
+                     </a>
+                    </div>
+                    
+                </form>
+                <div class="col-md-4 sidebar checkout-sidebar">
+                    <div class="row m0 widget widget-similar-project widget-similar">
+                        <h4 class="hhh h2">SIMILAR causes</h4>
+                        <div class="similar-project">                                                                                   
+                            
+                            <div class="row cause-item education" ng-repeat="cause in causes">
+                                <div class="images_row row m0">
+                                    <div id="causes_carousel_inner" class="carousel slide" data-ride="carousel" data-interval="3000">
+                                        
+                                        <div class="carousel-inner" role="listbox">
+                                            <div class="item" ng-class="{'active':$index == 0}" ng-repeat="img in cause.images"><img src="./images/{{img}}" alt=""></div>                                                                                                                                   
+                                        </div>
+
+                                        
+                                        <ol class="carousel-indicators">                                                                                   
+                                            <li data-target="#causes_carousel_inner" data-slide-to="0" class=""></li>
+                                            <li data-target="#causes_carousel_inner" data-slide-to="1" class="active"></li>
+                                        </ol>
+                                    </div>
+                                    <a ng-click="donateNowClicked(cause)" class="btn-primary">donate now</a>
+                                </div>
+                                <div class="cause_excepts row m0">
+                                    <h4 class="cuase_title"><a href="http://themedesigner.in/demo/Helping-Hands/single-cause.html">{{cause.heading}}</a></h4>
+                                    <p>{{cause.description}}</p>
+                                    <div class="row fund_progress m0">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="percentage"><span class="counter">68</span>%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row fund_raises m0">                                
+                                        <div class="pull-left raised amount_box">
+                                            <h6>raised</h6>
+                                            <h3>${{cause.raisedAmount}}</h3>
+                                        </div>
+                                        <div class="pull-left goal amount_box">
+                                            <h6>goal</h6>
+                                            <h3>${{cause.goal}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="row newsletter_signup style3">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <h4>NEWSLETTER SIGN-UP</h4>
+                    <p>Praesent diam massa, interdum quis ex id, laoreet interdum odio.</p>
+                </div>
+                <form class="col-sm-7 form-inline newsletter_signup_form">
+                    <input type="text" class="form-control" placeholder="Name">
+                    <input type="email" class="form-control" placeholder="Email Address">
+                    <input type="submit" value="submit" class="btn-primary white">
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="row footer">
+        <div class="container">
+            <div class="row footer_sidebar">
+                <div class="widget widget-about col-sm-6 col-md-3">
+                    <h6 class="label label-default widget-title">about helping hands</h6>
+                    <p>Praesent diam massa, interdum qu vel ligula tortor. Phasellus gravida faucibus eu. Mauris fringilla place et fermentum hendrerit.</p>
+                    <a href="http://themedesigner.in/demo/Helping-Hands/about.html" class="btn-primary btn-outline">know more</a>
+                </div>
+                <div class="widget widget-recent-posts col-sm-6 col-md-3">
+                    <h6 class="label label-default widget-title">recent posts</h6>
+                    <ul class="nav recent-posts">
+                        <li><a href="http://themedesigner.in/demo/Helping-Hands/single.html">EVENT FOR PROVIDING PENS TO THE THE CHILDRENS</a></li>
+                        <li><a href="http://themedesigner.in/demo/Helping-Hands/single.html">MEDICAL CHECKUP CAMP FOR USE CHILDRENS IN AFRICA</a></li>
+                        <li><a href="http://themedesigner.in/demo/Helping-Hands/single.html">SEMINAR FOR Childrens to WELL know about FUTURE</a></li>
+                    </ul>
+                </div>
+                <div class="widget widget-recent-tweets col-sm-6 col-md-3">
+                    <h6 class="label label-default widget-title">recent tweets</h6>
+                    <div class="tweet m0">
+                        <p><a href="http://themedesigner.in/demo/Helping-Hands/donation-checkout.html#">@Ymodita</a>  hey, please send me a msg through the contact form on my profile page at themeforest <br>
+                        <span class="time_past">2 months ago</span></p>
+                    </div>
+                    <a href="http://themedesigner.in/demo/Helping-Hands/donation-checkout.html#" class="btn-primary btn-outline">follow us now</a>
+                </div>
+                <div class="widget widget-contact col-sm-6 col-md-3">
+                    <h6 class="label label-default widget-title">CONTACT HELPING HANDS</h6>
+                    <address>
+                        Address will be appear here, some details of text will be here.
+                        <br><br>
+                        <span>Phone</span> : +215 (123) 4567 <br>
+                        <span>Email</span> : <a href="mailto:info@helpinghands.com">info@helpinghands.com</a>
+                    </address>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row copyright_area m0">
+            <div class="container">
+                <div class="copy_inner row">
+                    <div class="col-sm-7 copyright_text">Copyright 2015. All Rights Reserved by <a href="http://themedesigner.in/demo/Helping-Hands/donation-checkout.html#">Helping Hands</a>. Designed by <a href="http://www.themedesigner.in/">Theme Designer</a>.</div>
+                    <div class="col-sm-5 footer-nav">
+                    	<ul class="nav">
+							<li><a href="http://themedesigner.in/demo/Helping-Hands/donation-checkout.html#">Terms of Use</a></li>
+							<li><a href="http://themedesigner.in/demo/Helping-Hands/donation-checkout.html#">Privacy Policy</a></li>
+							<li><a href="http://themedesigner.in/demo/Helping-Hands/donation-checkout.html#">Desclaimer</a></li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    
+    <!--Donate Form-->
+    <form action="http://themedesigner.in/demo/Helping-Hands/donation-checkout.html#" method="get" class="row m0 donate_form mfp-hide" id="donate_box">
+        <h3>ENTER YOUR DONATION AMOUNT</h3>
+        
+        <input type="radio" name="donate-amount" id="donate-amount01" value="10">
+        <label for="donate-amount01">
+            <strong>DONATE <span>$10</span></strong><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa ips tum sed, suscipit sit amet arcu. Ut ut finibus tortor
+        </label>
+        
+        <input type="radio" name="donate-amount" id="donate-amount02" value="25">
+        <label for="donate-amount02">
+            <strong>DONATE <span>$10</span></strong><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa ips tum sed, suscipit sit amet arcu. Ut ut finibus tortor
+        </label>
+        
+        <input type="radio" name="donate-amount" id="donate-amount03" value="100">
+        <label for="donate-amount03">
+            <strong>DONATE <span>$10</span></strong><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa ips tum sed, suscipit sit amet arcu. Ut ut finibus tortor
+        </label>
+        
+        <input type="radio" name="donate-amount" id="donate-amount04" value="500">
+        <label for="donate-amount04">
+            <strong>DONATE <span>$10</span></strong><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa ips tum sed, suscipit sit amet arcu. Ut ut finibus tortor
+        </label>
+        
+        <h5>ENTER CUSTOM AMOUNT</h5>
+        
+        <div class="input-group">
+            <span class="input-group-addon left">$</span>
+            <input type="number" class="form-control" name="donate-amount">
+            <span class="input-group-addon right">
+                <button type="submit" class="btn-primary">donate now</button>
+            </span>
+        </div>
+    </form>
+    
+    <!--Color Change Setting-->
+    <div class="row m0 color_change_setting">
+    	<div class="setting_box"><i class="fa fa-cog fa-spin" aria-hidden="true"></i></div>
+    	<div class="row m0 colors_variations">
+    		<h3 class="hhh h2">Change Color</h3>
+    		<div class="colors row m0">
+    			<a href="javascript:chooseStyle(&#39;none&#39;, 60)" class="default-theme working">1</a>
+				<a href="javascript:chooseStyle(&#39;yellow-theme&#39;, 60)" class="yellow-theme">2</a>
+				<a href="javascript:chooseStyle(&#39;blue-theme&#39;, 60)" class="blue-theme">3</a>
+				<a href="javascript:chooseStyle(&#39;red-theme&#39;, 60)" class="red-theme">4</a>
+				<a href="javascript:chooseStyle(&#39;purple-theme&#39;, 60)" class="purple-theme">5</a>
+				<a href="javascript:chooseStyle(&#39;orange-theme&#39;, 60)" class="orange-theme">6</a>
+    		</div>
+    	</div>
+    </div>
+    
+    <script src="./donate_files/jquery-2.1.4.min.js.download"></script>
+    <script src="./donate_files/bootstrap.min.js.download"></script>
+    <!--Google Map-->
+    <script src="./donate_files/js"></script>
+    <script src="./donate_files/gmaps.min.js.download"></script>
+    <!--Bootstrap Select-->
+    <script src="./donate_files/bootstrap-select.min.js.download"></script>
+    <!--Magnific Popup-->
+    <script src="./donate_files/jquery.magnific-popup.min.js.download"></script>
+    <!--Owl Carousel-->
+    <script src="./donate_files/owl.carousel.min.js.download"></script>
+    <!--CounterUp-->
+    <script src="./donate_files/jquery.counterup.min.js.download"></script>
+    <!--WayPoints-->
+    <script src="./donate_files/waypoints.min.js.download"></script>
+    <!--Isotope & ImagesLoaded-->
+    <script src="./donate_files/imagesloaded.pkgd.min.js.download"></script>
+    <script src="./donate_files/isotope.min.js.download"></script>
+    <!--Theme Script-->    
+    <script src="./donate_files/theme.min.js.download"></script>
+    <!--StyleSwitch-->
+    <script src="./donate_files/styleswitch.js.download"></script>
+
+    <!--custom inclusions-->
+    <script src="lib/angular-1.5.8/angular.min.js"></script>
+    <script src="lib/angular-1.5.8/angular-animate.min.js"></script>
+    <script src="lib/angular-1.5.8/angular-aria.min.js"></script>
+    <script src="lib/angular-1.5.8/angular-messages.min.js"></script>
+
+   <!-- Angular Material Library -->
+   <script src="lib/angular-material.min.js"></script>    
+    
+   <script src="js/page_donate/donote.js"></script>
+   <script src="services/ajaxService.js"></script>
+   <script src="popups/donationAmountPopup.js"></script>
+   <script src="utils/js_utils.js"></script> 
+    
+</body></html>
