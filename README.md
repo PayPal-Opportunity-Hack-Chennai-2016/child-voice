@@ -1,19 +1,19 @@
 # child-voice
----------------------------------------
-Make All Happy
 
-Description
+## Make All Happy
+
+## Description
 * Donating not only money more than that...
 
-Team Details
+## Team Details
 
-Rajesh Kumar
-Arun Kumar
-Goutham Y
-Marimuthu Ganapathy
-Vaishnavi
-Selva Ganesh
-Gaurav
-Ela
-Siva
-Somaiya
+* Rajesh Kumar
+* Arun Kumar
+* Goutham Y
+* Marimuthu Ganapathy
+* Vaishnavi
+* Selva Ganesh
+* Gaurav
+* Ela
+* Siva
+* Somaiya
