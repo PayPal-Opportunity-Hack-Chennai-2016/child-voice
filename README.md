@@ -1,9 +1,11 @@
 # child-voice
-<< Child Voice - Make All Happy>>
-<< Description >>
+Child Voice
+Team Name - Make All Happy
+Description
 * Donating not only money more than that...
 
-<< Team Details>>
+Team Details
+
 Rajesh Kumar
 Arun Kumar
 Goutham Y
