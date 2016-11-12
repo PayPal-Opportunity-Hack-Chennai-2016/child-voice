@@ -1,12 +1,11 @@
-<!--{% extends "demo/base.html" %}-->
+{% extends "demo/base.html" %}
 {% load wagtailcore_tags %}
 
 
 {% block heading %}
+  <div class="page-header">
 
-  <!--<div class="page-header">
-
-<!--    <div class="pull-right">
+    <div class="pull-right">
       {% for tag in self.tags.all %}
         <a href="{% pageurl self.blog_index %}?tag={{ tag }}"
            class="btn btn-primary btn-xs">
@@ -14,14 +13,13 @@
         </a>
       {% endfor %}
     </div>
--->
-<!--    <h2>
+
+    <h2>
       {{ self.title }}
       {% if self.date %}<small>{{ self.date }}</small>{% endif %}
     </h2>
 
-  </div>-->
- 
+  </div>
 {% endblock %}
 
 {% block content %}
@@ -33,5 +31,5 @@
         </div>
     {% endif %}
 
-    <!--{% include "demo/includes/related_links.html" with related_links=self.related_links.all only %}-->
+    {% include "demo/includes/related_links.html" with related_links=self.related_links.all only %}
 {% endblock %}
