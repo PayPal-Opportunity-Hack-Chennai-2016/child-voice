@@ -1,0 +1,52 @@
+<md-dialog id="DonationAmountForm-dialog" >
+    <form name="DonationForm" ng-submit="submit(DonationForm.$valid)" novalidate>
+
+        <md-toolbar style="background-color:rgb(41, 175, 138)">
+            <div class="md-toolbar-tools">
+                <h2>{{formTitle}}</h2>
+                <span flex></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="cancel();">
+                    <i class="fa fa-times-circle"></i>
+                </button>                
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <md-list ng-cloak style="padding-top:32px">
+                <md-list-item style="width:430px">
+                    <md-radio-group ng-model="selectedDonation">
+
+                      <md-radio-button value="{{donation}}" class="md-primary" ng-repeat="donation in defaultDonations">Donate ${{donation}}</md-radio-button>                      
+                      <md-radio-button value="custom" class="md-primary" >Custom Amount</md-radio-button>                      
+                       <md-input-container style="width:400px" ng-show="selectedDonation == 'custom'">
+                        <label>Custom Amount</label>
+                        <input id="employeeName"
+                               name="employeeName"
+                               type="number"
+                               placeholder=""
+                               ng-model="customAmount"
+                               autocomplete="off"                               
+                               min="0"/>
+                                                                                      
+                        
+                        </md-input-container> 
+                       
+                    </md-radio-group>
+                </md-list-item>
+            </md-list>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+
+            <md-button type="button" class="warning-button dialog-cancel-button" ng-click="cancel();">
+                Cancel
+            </md-button>
+
+            <md-button type="submit" class="md-raised primary-button dialog-submit-button" >
+                Donate Now
+            </md-button>
+
+        </md-dialog-actions>
+
+    </form>
+</md-dialog>
