@@ -13,6 +13,8 @@ ADMINS = (
 
 # Default to dummy email backend. Configure dev/production/local backend
 # as per https://docs.djangoproject.com/en/dev/topics/email/#email-backends
+
+# EMAIL SETTINGS
 EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 DATABASES = {
@@ -24,7 +26,7 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["192.168.117.225"]
+ALLOWED_HOSTS = ["127.0.0.1", "192.168.116.117"]
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name

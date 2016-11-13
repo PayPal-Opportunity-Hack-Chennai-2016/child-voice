@@ -9,4 +9,8 @@
         {{ form.as_p }}
         <input type="submit">
     </form>
+        {% if form.is_valid %}:
+       {{ data = form.cleaned_data }}
+        {{ field = data['field'] }}
+        {{ print field }}
 {% endblock %}
