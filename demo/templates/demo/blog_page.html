@@ -24,12 +24,12 @@
 
 {% block content %}
     {% include "demo/includes/carousel.html" with carousel_items=self.carousel_items.all only %}
-
+      <a class="a2a_dd" href="https://www.addtoany.com/share"><img src="//static.addtoany.com/buttons/share_save_256_24.png" width="256" height="24" border="0" alt="Share"/></a>
+      <script async src="https://static.addtoany.com/menu/page.js"></script>
     {% if self.body %}
         <div class="body-content">
             {% include "demo/includes/streamfield.html" with content=self.body %}
         </div>
     {% endif %}
-
     {% include "demo/includes/related_links.html" with related_links=self.related_links.all only %}
 {% endblock %}
